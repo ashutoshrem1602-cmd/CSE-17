@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Even Odd Checker</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 350px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.container:hover {
+    transform: scale(1.03);
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+input {
+    padding: 12px;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+input:focus {
+    border-color: #6a11cb;
+    box-shadow: 0 0 8px rgba(106,17,203,0.3);
+}
+
+button {
+    padding: 12px 25px;
+    margin-top: 15px;
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+button:hover {
+    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+    transform: translateY(-2px);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #444;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+    <h2>Even Odd Checker</h2>
+    <input type="number" id="num" placeholder="Enter Number">
+    <br><br>
+    <button onclick="check()">Check</button>
+    <h3 id="result"></h3>
+</div>
+
+<script>
+function check(){
+    let n = Number(document.getElementById("num").value);
+    if(n % 2 === 0){
+        document.getElementById("result").innerHTML = "✅ Even Number";
+        document.getElementById("result").style.color = "green";
+    } else {
+        document.getElementById("result").innerHTML = "🔢 Odd Number";
+        document.getElementById("result").style.color = "red";
+    }
+}
+</script>
+</body>
+</html>
