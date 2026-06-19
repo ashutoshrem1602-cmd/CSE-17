@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple Interest Calculator</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #4facfe, #00f2fe);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        width: 350px;
+        text-align: center;
+    }
+
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    button {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background: #0056b3;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: green;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Simple Interest Calculator</h2>
+
+    <input type="number" id="principal" placeholder="Enter Principal Amount">
+
+    <input type="number" id="rate" placeholder="Enter Rate (%)">
+
+    <input type="number" id="time" placeholder="Enter Time (Years)">
+
+    <button onclick="calculateSI()">Calculate</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function calculateSI() {
+    let principal = parseFloat(document.getElementById("principal").value);
+    let rate = parseFloat(document.getElementById("rate").value);
+    let time = parseFloat(document.getElementById("time").value);
+
+    if (isNaN(principal) || isNaN(rate) || isNaN(time)) {
+        document.getElementById("result").innerHTML =
+            "Please enter all values.";
+        return;
+    }
+
+    let simpleInterest = (principal * rate * time) / 100;
+
+    document.getElementById("result").innerHTML =
+        "Simple Interest = ₹" + simpleInterest.toFixed(2);
+}
+</script>
+
+</body>
+</html>
