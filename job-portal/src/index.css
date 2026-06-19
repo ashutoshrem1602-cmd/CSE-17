@@ -1,0 +1,141 @@
+/* ===================== TAILWIND ===================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===================== GLOBAL / CUSTOM CSS ===================== */
+/* (Things Tailwind/Bootstrap utilities can't cleanly do go here) */
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #fafaf8;
+  color: #1f2937;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+  font-family: "Sora", sans-serif;
+}
+
+/* Smooth scroll for navbar anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero section background: subtle layered gradient */
+.hero-section {
+  background: radial-gradient(circle at 15% 20%, rgba(30, 95, 78, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(242, 163, 65, 0.1) 0%, transparent 40%),
+    linear-gradient(180deg, #f4faf8 0%, #fafaf8 100%);
+}
+
+/* Job card hover: lift + shadow + smooth transition */
+.job-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid #e5e7eb;
+}
+.job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px -10px rgba(30, 95, 78, 0.18);
+  border-color: #1e5f4e;
+}
+
+/* Badge pill colors per job type */
+.badge-full-time {
+  background-color: #e8f2ee;
+  color: #1e5f4e;
+}
+.badge-part-time {
+  background-color: #fdf1e2;
+  color: #b5731a;
+}
+.badge-internship {
+  background-color: #eaf1fb;
+  color: #2d5da8;
+}
+
+/* Apply button */
+.btn-apply {
+  background-color: #f2a341;
+  border: none;
+  color: #1f2937;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+.btn-apply:hover {
+  background-color: #dc8e2c;
+  transform: scale(1.03);
+  color: #1f2937;
+}
+
+/* Navbar link underline animation */
+.nav-link-custom {
+  position: relative;
+  color: #374151;
+  font-weight: 500;
+}
+.nav-link-custom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #1e5f4e;
+  transition: width 0.25s ease;
+}
+.nav-link-custom:hover::after {
+  width: 100%;
+}
+.nav-link-custom:hover {
+  color: #1e5f4e;
+}
+
+/* Search bar container shadow */
+.search-bar-card {
+  box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.12);
+}
+
+/* Footer social icons */
+.social-icon {
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #e8f2ee;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.social-icon:hover {
+  background-color: #f2a341;
+  color: #1f2937;
+  transform: translateY(-3px);
+}
+
+/* Empty-state fade in */
+.fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom focus ring for accessibility (keyboard users) */
+select:focus,
+input:focus,
+button:focus-visible {
+  outline: 2px solid #1e5f4e !important;
+  outline-offset: 1px;
+}
