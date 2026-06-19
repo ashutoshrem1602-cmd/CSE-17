@@ -1,0 +1,57 @@
+import React from "react";
+
+// Navbar: logo + Home / Movies / Trending / About links
+// Fully responsive — collapses into a hamburger menu on mobile
+function Navbar() {
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark-custom sticky-top py-3">
+      <div className="container">
+        {/* Logo + site name */}
+        <a className="navbar-brand d-flex align-items-center gap-2" href="#home">
+          <div
+            className="d-flex align-items-center justify-content-center rounded-2"
+            style={{ width: "38px", height: "38px", backgroundColor: "#E50914" }}
+          >
+            <i className="bi bi-film text-white fs-5"></i>
+          </div>
+          <span className="font-heading fs-3 text-white">
+            Cine<span style={{ color: "#E50914" }}>Find</span>
+          </span>
+        </a>
+
+        {/* Mobile toggle button */}
+        <button
+          className="navbar-toggler border-0"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-controls="navMenu"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        {/* Nav links */}
+        <div className="collapse navbar-collapse" id="navMenu">
+          <ul className="navbar-nav ms-auto gap-lg-4 text-center mt-3 mt-lg-0">
+            <li className="nav-item">
+              <a className="nav-link nav-link-custom" href="#home">Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link nav-link-custom" href="#movies">Movies</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link nav-link-custom" href="#trending">Trending</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link nav-link-custom" href="#about">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+export default Navbar;

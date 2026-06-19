@@ -1,0 +1,122 @@
+
+*, *::before, *::after {
+ box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+}
+:root {
+ --bg: #98bfe5;
+ --surface: #ffffff;
+ --border: #d6dbe3;
+ --text: #1a202c;
+ --text-muted: #64748b;
+ --accent: #2563eb;
+ --accent-hover: #1d4ed8;
+ --radius: 12px;
+ --radius-sm: 8px;
+ --shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+body {
+ font-family: 'Segoe UI', system-ui, sans-serif;
+ background: linear-gradient(135deg, #adcbe9, #dbeafe);
+ color: var(--text);
+ min-height: 100vh;
+ padding: 60px 20px;
+}
+.container {
+ width: 100%;
+ max-width: 780px;
+ margin: 0 auto;
+ background: var(--surface);
+ border: 1px solid var(--border);
+ border-radius: var(--radius);
+ padding: 40px;
+ box-shadow: var(--shadow);
+}
+.container h2 {
+ font-size: 1.4rem;
+ font-weight: 600;
+ margin-bottom: 28px;
+ padding-bottom: 16px;
+ border-bottom: 2px solid var(--border);
+}
+.field-row {
+ display: grid;
+ grid-template-columns: 1fr 160px;
+ gap: 16px;
+ margin-bottom: 16px;
+}
+.field-row input {
+ width: 100%;
+ padding: 14px 16px;
+ font-size: 0.95rem;
+ background: #f8fafc;
+ border: 1px solid var(--border);
+ border-radius: var(--radius-sm);
+ transition: all 150ms ease;
+}
+.field-row input:focus {
+ border-color: var(--accent);
+ background: #fff;
+ box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+.field-row button {
+ padding: 14px;
+ font-size: 0.9rem;
+ font-weight: 600;
+ background: var(--accent);
+ color: #fff;
+ border: none;
+ border-radius: var(--radius-sm);
+ cursor: pointer;
+ transition: all 150ms ease;
+}
+.field-row button:hover {
+ background: var(--accent-hover);
+ transform: translateY(-1px);
+}
+#output {
+ margin-top: 28px;
+ padding: 20px;
+ background: #f8fafc;
+ border: 1px solid var(--border);
+ border-radius: var(--radius);
+ font-size: 0.95rem;
+ line-height: 1.7;
+ min-height: 80px;
+}
+.table {
+ width: 100%;
+ border-collapse: collapse;
+ margin-top: 24px;
+ font-size: 0.95rem;
+}
+.table th,
+.table td {
+ padding: 14px 16px;
+ text-align: left;
+ border-bottom: 1px solid var(--border);
+}
+.table th {
+ background: #f1f5f9;
+ font-weight: 600;
+ color: var(--text);
+}
+.table tr:hover td {
+ background: #f8fafc;
+}
+.section {
+ margin-top: 32px;
+}
+@media (max-width: 600px) {
+ .container {
+ padding: 24px;
+ }
+ .field-row {
+ grid-template-columns: 1fr;
+ }
+ .field-row button {
+ width: 100%;
+ }
+
+} 

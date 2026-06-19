@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bank Account Simulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .account {
+      background-color: #fff;
+      border: 2px solid #333;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #007acc;
+    }
+    p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="output"></div>
+
+  <script>
+    class Account {
+      constructor(accountNumber, holderName, balance) {
+        this.accountNumber = accountNumber;
+        this.holderName = holderName;
+        this.balance = balance;
+      }
+    }
+
+    class SavingsAccount extends Account {
+      constructor(accountNumber, holderName, balance, deposit) {
+        super(accountNumber, holderName, balance);
+        this.deposit = deposit;
+      }
+
+      calculateInterest() {
+        return this.deposit * 0.3; 
+      }
+
+      display() {
+        return `
+          <div class="account">
+            <h2>----- Savings Account -----</h2>
+            <p>Amount Deposited: ${this.deposit}</p>
+            <p>Account Number: ${this.accountNumber}</p>
+            <p>Account Holder Name: ${this.holderName}</p>
+            <p>Balance: ${this.balance}</p>
+            <p>Savings Account Interest: ${this.calculateInterest()}</p>
+          </div>
+        `;
+      }
+    }
+
+    class CurrentAccount extends Account {
+      constructor(accountNumber, holderName, balance, deposit) {
+        super(accountNumber, holderName, balance);
+        this.deposit = deposit;
+      }
+
+      calculateInterest() {
+        return this.deposit * 0.153; // Example interest rate
+      }
+
+      display() {
+        return `
+          <div class="account">
+            <h2>----- Current Account -----</h2>
+            <p>Amount Deposited: ${this.deposit}</p>
+            <p>Account Number: ${this.accountNumber}</p>
+            <p>Account Holder Name: ${this.holderName}</p>
+            <p>Balance: ${this.balance}</p>
+            <p>Current Account Interest: ${this.calculateInterest()}</p>
+          </div>
+        `;
+      }
+    }
+
+    const savings = new SavingsAccount(101, "Rahul", 12000.0, 2000.0);
+    const current = new CurrentAccount(102, "Anita", 23000.0, 3000.0);
+
+    document.getElementById("output").innerHTML = savings.display() + current.display();
+  </script>
+
+</body>
+</html>
